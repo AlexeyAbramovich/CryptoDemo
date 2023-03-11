@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 django = "~=4.0.0"
+requests = "*"
 
 [dev-packages]
 
