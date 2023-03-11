@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Crypto Info</title>
+        <style>
+            .info{
+                font-family: Arial;
+                font-size: 30px;
+            }
+            .position{
+                display: inline;
+                margin-left: 1em;
+            }
+            .name{
+                display: inline;
+                margin-left: 1em;
+            }
+            .price{
+                display: inline;
+                margin-left: 1em;
+            }
+            .increase{
+                color: #42FF00;
+                display: inline;
+                margin-left: 1em;
+            }
+            .fall{
+                color: #FF2E00;
+                opacity: 0.86;
+                display: inline;
+                margin-left: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Список цен 100 криптовалют:</h1>
+        {% csrf_token %}
+        <div class="info">
+            {% for info in crypto_info %}
+                <div class="position">
+                    {{info.position}}.
+                </div>
+                <div class="name">
+                    {{info.name}}
+                </div>
+                <div class="price">
+                    {{info.current_price}}
+                </div>
+                {% if info.changes_for_1h >= 0 %}
+                    <div class="increase"> {{info.changes_for_1h}}%</div>
+                {% endif %}
+                {% if info.changes_for_1h < 0 %}
+                    <div class="fall"> {{info.changes_for_1h}}%</div>
+                {% endif %}
+                {% if info.changes_for_24h >= 0 %}
+                    <div class="increase"> {{info.changes_for_24h}}%</div>
+                {% endif %}
+                {% if info.changes_for_24h < 0 %}
+                    <div class="fall"> {{info.changes_for_24h}}%</div>
+                {% endif %}
+                {% if info.changes_for_7d >= 0 %}
+                    <div class="increase"> {{info.changes_for_7d}}%</div>
+                {% endif %}
+                {% if info.changes_for_7d < 0 %}
+                    <div class="fall"> {{info.changes_for_7d}}%</div>
+                {% endif %}
+                <br>
+            {% endfor %}
+        </div>
+    </body>
+</html>
