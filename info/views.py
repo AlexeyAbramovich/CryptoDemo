@@ -4,9 +4,6 @@ import requests
 import json
 
 
-# Create your views here.
-
-
 class HomePageView(ListView):
     __path = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=1h%2C7d'
     template_name = "home_page.html"
@@ -17,8 +14,6 @@ class HomePageView(ListView):
         data = json.dumps(response)
         data = json.loads(data)
         info_list = []
-
-        # counter = 1
         for inf in data:
             info = {}
             changes_for_1h = inf['price_change_percentage_1h_in_currency']
@@ -34,8 +29,4 @@ class HomePageView(ListView):
             info["changes_for_24h"] = round(changes_for_24h, 1)
             info["changes_for_7d"] = round(changes_for_7d, 1)
             info_list.append(info)
-            # info.append(f"{inf['market_cap_rank']}." + f" {inf['name']}" + f" {inf['current_price']}$" +
-            #             f" {round(changes_for_1h, 1)}%" + f" {round(changes_for_24h, 1)}%" +
-            #             f" {round(changes_for_7d, 1)}%")
-            # counter += 1
         return info_list
