@@ -49,20 +49,17 @@
                 </div>
                 {% if info.changes_for_1h >= 0 %}
                     <div class="increase"> {{info.changes_for_1h}}%</div>
-                {% endif %}
-                {% if info.changes_for_1h < 0 %}
+                {% else %}
                     <div class="fall"> {{info.changes_for_1h}}%</div>
                 {% endif %}
                 {% if info.changes_for_24h >= 0 %}
                     <div class="increase"> {{info.changes_for_24h}}%</div>
-                {% endif %}
-                {% if info.changes_for_24h < 0 %}
+                {% else %}
                     <div class="fall"> {{info.changes_for_24h}}%</div>
                 {% endif %}
                 {% if info.changes_for_7d >= 0 %}
                     <div class="increase"> {{info.changes_for_7d}}%</div>
-                {% endif %}
-                {% if info.changes_for_7d < 0 %}
+                {% else %}
                     <div class="fall"> {{info.changes_for_7d}}%</div>
                 {% endif %}
                 <br>
