@@ -15,31 +15,33 @@
         </div>
         <div class="info">
             {% for info in crypto_info %}
-                <div class="position">
-                    {{info.position}}.
+                <div class="form">
+                    <div class="position">
+                        {{info.position}}.
+                    </div>
+                    <div class="name">
+                        {{info.name}}
+                    </div>
+                    <div class="price">
+                        {{info.current_price}}
+                    </div>
+                    {% if info.changes_for_1h >= 0 %}
+                        <div class="increase"> {{info.changes_for_1h}}%</div>
+                    {% else %}
+                        <div class="fall"> {{info.changes_for_1h}}%</div>
+                    {% endif %}
+                    {% if info.changes_for_24h >= 0 %}
+                        <div class="increase"> {{info.changes_for_24h}}%</div>
+                    {% else %}
+                        <div class="fall"> {{info.changes_for_24h}}%</div>
+                    {% endif %}
+                    {% if info.changes_for_7d >= 0 %}
+                        <div class="increase"> {{info.changes_for_7d}}%</div>
+                    {% else %}
+                        <div class="fall"> {{info.changes_for_7d}}%</div>
+                    {% endif %}
+                    <br>
                 </div>
-                <div class="name">
-                    {{info.name}}
-                </div>
-                <div class="price">
-                    {{info.current_price}}
-                </div>
-                {% if info.changes_for_1h >= 0 %}
-                    <div class="increase"> {{info.changes_for_1h}}%</div>
-                {% else %}
-                    <div class="fall"> {{info.changes_for_1h}}%</div>
-                {% endif %}
-                {% if info.changes_for_24h >= 0 %}
-                    <div class="increase"> {{info.changes_for_24h}}%</div>
-                {% else %}
-                    <div class="fall"> {{info.changes_for_24h}}%</div>
-                {% endif %}
-                {% if info.changes_for_7d >= 0 %}
-                    <div class="increase"> {{info.changes_for_7d}}%</div>
-                {% else %}
-                    <div class="fall"> {{info.changes_for_7d}}%</div>
-                {% endif %}
-                <br>
             {% endfor %}
         </div>
     </body>

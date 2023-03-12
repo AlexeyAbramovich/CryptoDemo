@@ -1,6 +1,14 @@
 .info {
     font-family: Arial;
     font-size: 30px;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.form{
+    background-image: url("/static/icons/form.png");
+    height: 168px;
+    width: 1132px;
+    margin-bottom: 1%;
 }
 
 .position {
