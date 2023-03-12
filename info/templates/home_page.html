@@ -1,69 +1,46 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Crypto Info</title>
-        <style>
-            .info{
-                font-family: Arial;
-                font-size: 30px;
-            }
-            .position{
-                display: inline;
-                margin-left: 1em;
-            }
-            .name{
-                display: inline;
-                margin-left: 1em;
-            }
-            .price{
-                display: inline;
-                margin-left: 1em;
-            }
-            .increase{
-                color: #42FF00;
-                display: inline;
-                margin-left: 1em;
-            }
-            .fall{
-                color: #FF2E00;
-                opacity: 0.86;
-                display: inline;
-                margin-left: 1em;
-            }
-        </style>
+        <link rel="stylesheet" href="{% static 'css/home_page_styles.css' %}">
     </head>
-    <body>
-        <h1>Список цен 100 криптовалют:</h1>
+    <body class="main_screen">
         {% csrf_token %}
-        <div class="info">
-            {% for info in crypto_info %}
-                <div class="position">
-                    {{info.position}}.
-                </div>
-                <div class="name">
-                    {{info.name}}
-                </div>
-                <div class="price">
-                    {{info.current_price}}
-                </div>
-                {% if info.changes_for_1h >= 0 %}
-                    <div class="increase"> {{info.changes_for_1h}}%</div>
-                {% else %}
-                    <div class="fall"> {{info.changes_for_1h}}%</div>
-                {% endif %}
-                {% if info.changes_for_24h >= 0 %}
-                    <div class="increase"> {{info.changes_for_24h}}%</div>
-                {% else %}
-                    <div class="fall"> {{info.changes_for_24h}}%</div>
-                {% endif %}
-                {% if info.changes_for_7d >= 0 %}
-                    <div class="increase"> {{info.changes_for_7d}}%</div>
-                {% else %}
-                    <div class="fall"> {{info.changes_for_7d}}%</div>
-                {% endif %}
-                <br>
-            {% endfor %}
+        <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
+        <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
+        <div class="button_log_out">
+            <p class="button_log_out_text">Выйти</p>
         </div>
+<!--        <div class="info">-->
+<!--            {% for info in crypto_info %}-->
+<!--                <div class="position">-->
+<!--                    {{info.position}}.-->
+<!--                </div>-->
+<!--                <div class="name">-->
+<!--                    {{info.name}}-->
+<!--                </div>-->
+<!--                <div class="price">-->
+<!--                    {{info.current_price}}-->
+<!--                </div>-->
+<!--                {% if info.changes_for_1h >= 0 %}-->
+<!--                    <div class="increase"> {{info.changes_for_1h}}%</div>-->
+<!--                {% else %}-->
+<!--                    <div class="fall"> {{info.changes_for_1h}}%</div>-->
+<!--                {% endif %}-->
+<!--                {% if info.changes_for_24h >= 0 %}-->
+<!--                    <div class="increase"> {{info.changes_for_24h}}%</div>-->
+<!--                {% else %}-->
+<!--                    <div class="fall"> {{info.changes_for_24h}}%</div>-->
+<!--                {% endif %}-->
+<!--                {% if info.changes_for_7d >= 0 %}-->
+<!--                    <div class="increase"> {{info.changes_for_7d}}%</div>-->
+<!--                {% else %}-->
+<!--                    <div class="fall"> {{info.changes_for_7d}}%</div>-->
+<!--                {% endif %}-->
+<!--                <br>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
     </body>
 </html>
