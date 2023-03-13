@@ -22,8 +22,9 @@ class HomePageView(ListView):
             changes_for_1h = changes_for_1h if changes_for_1h is not None else 0.0
             changes_for_24h = changes_for_24h if changes_for_24h is not None else 0.0
             changes_for_7d = changes_for_7d if changes_for_7d is not None else 0.0
-            info["position"] = f"{inf['market_cap_rank']}"
-            info["name"] = f" {inf['name']}"
+            info["image"] = inf['image']
+            info["name"] = inf['name']
+            info["symbol"] = str(inf['symbol']).upper()
             info["current_price"] = f" {inf['current_price']}$"
             info["changes_for_1h"] = round(changes_for_1h, 1)
             info["changes_for_24h"] = round(changes_for_24h, 1)

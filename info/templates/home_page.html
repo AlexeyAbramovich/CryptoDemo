@@ -16,31 +16,41 @@
         <div class="info">
             {% for info in crypto_info %}
                 <div class="form">
-                    <div class="position">
-                        {{info.position}}.
-                    </div>
                     <div class="name">
-                        {{info.name}}
+                        <p class="coin">{{info.name}}</p>
+                        <p class="symbol">{{info.symbol}}</p>
+                        <img class="crypto_icon" src="{{info.image}}">
                     </div>
                     <div class="price">
                         {{info.current_price}}
                     </div>
                     {% if info.changes_for_1h >= 0 %}
-                        <div class="increase"> {{info.changes_for_1h}}%</div>
+                        <div class="increase_price">
+                            {{info.changes_for_1h}}%
+                        </div>
                     {% else %}
-                        <div class="fall"> {{info.changes_for_1h}}%</div>
+                        <div class="fall_price">
+                            {{info.changes_for_1h}}%
+                        </div>
                     {% endif %}
                     {% if info.changes_for_24h >= 0 %}
-                        <div class="increase"> {{info.changes_for_24h}}%</div>
+                        <div class="increase_price">
+                            {{info.changes_for_24h}}%
+                        </div>
                     {% else %}
-                        <div class="fall"> {{info.changes_for_24h}}%</div>
+                        <div class="fall_price">
+                            {{info.changes_for_24h}}%
+                        </div>
                     {% endif %}
                     {% if info.changes_for_7d >= 0 %}
-                        <div class="increase"> {{info.changes_for_7d}}%</div>
+                        <div class="increase_price" style="border-right: none">
+                            {{info.changes_for_7d}}%
+                        </div>
                     {% else %}
-                        <div class="fall"> {{info.changes_for_7d}}%</div>
+                        <div class="fall_price" style="border-right: none">
+                            {{info.changes_for_7d}}%
+                        </div>
                     {% endif %}
-                    <br>
                 </div>
             {% endfor %}
         </div>
