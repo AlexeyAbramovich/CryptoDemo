@@ -1,17 +1,24 @@
-<!DOCTYPE html>
+{% extends "base.html"%}
 {% load static %}
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Crypto Info</title>
-        <link rel="stylesheet" href="{% static 'css/home_page_styles.css' %}">
-    </head>
-    <body class="main_screen">
-        {% csrf_token %}
-        <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/info_250_coins.css' %}">
+{% endblock %}
+{% block title %}250 Coins{% endblock %}
+{% block content %}
+<img class="logo" src="{% static 'icons/logo.png'%}" alt="">
         <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
         <div class="button_log_out">
             <p class="button_log_out_text">Выйти</p>
+        </div>
+        <img class="table_blur" src="{% static 'icons/table_form_blur.png'%}" alt="">
+        <div class="table_form">
+           <div class="table">
+                <p class="table_text">Валюта</p>
+                <p class="table_text">Текущая цена</p>
+                <p class="table_text">Изменения<br>(1 ч.)</p>
+                <p class="table_text">Изменения<br>(24 ч.)</p>
+                <p class="table_text">Изменения<br>(7 д.)</p>
+            </div>
         </div>
         <div class="info">
             {% for info in crypto_info %}
@@ -22,7 +29,7 @@
                         <img class="crypto_icon" src="{{info.image}}">
                     </div>
                     <div class="price">
-                        {{info.current_price}}
+                        {{info.current_price}}$
                     </div>
                     {% if info.changes_for_1h > 0 %}
                         <div class="increase_price">
@@ -66,5 +73,4 @@
                 </div>
             {% endfor %}
         </div>
-    </body>
-</html>
+{% endblock %}

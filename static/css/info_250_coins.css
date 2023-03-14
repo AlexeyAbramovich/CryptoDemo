@@ -1,4 +1,4 @@
-.main_screen {
+.main_container {
     background: linear-gradient(180deg, #323232 0%, #585757 100%);
 }
 
@@ -43,11 +43,41 @@
     letter-spacing: 1px;
 }
 
+.table_form{
+    background-image: url("/static/icons/table_form.png");
+    height: 124px;
+    width: 1162px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table {
+    height: 94px;
+    width: 1132px;
+    margin-left: auto;
+    margin-right: auto;
+    columns: 5;
+    column-gap: 0;
+}
+
+.table_text {
+    height: 50%;
+    margin: 0;
+    padding-top: 34px;
+    font-family: Arial;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    color: #EBEBEB;
+}
+
 .info {
     font-family: Arial;
     font-size: 30px;
     width: fit-content;
-    margin-top: 10%;
+    margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
 
