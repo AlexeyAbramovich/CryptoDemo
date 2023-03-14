@@ -24,7 +24,7 @@ class HomePageView(ListView):
             info["image"] = inf['image']
             info["name"] = inf['name']
             info["symbol"] = str(inf['symbol']).upper()
-            info["current_price"] = inf['current_price']
+            info["current_price"] = round(inf['current_price'], 9)
             info["changes_for_1h"] = round(changes_for_1h, 1)
             info["changes_for_24h"] = round(changes_for_24h, 1)
             info["changes_for_7d"] = round(changes_for_7d, 1)
