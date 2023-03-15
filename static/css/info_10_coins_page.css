@@ -1,0 +1,74 @@
+.main_container {
+    background-image: linear-gradient(to bottom, #323232, #585757);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.info {
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    column-count: 5;
+    column-gap: 60px;
+    font-family: Arial;
+}
+
+.form {
+    background-image: url("/static/icons/coin_background.png");
+    width: 210px;
+    height: 210px;
+    margin-bottom: 40px;
+}
+
+.crypto_info {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.crypto_icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 6px;
+}
+
+.coin_name {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 2px;
+    color: #EBEBEB;
+}
+
+.symbol {
+    font-size: 16px;
+    margin: 0;
+    padding-bottom: 10px;
+    color: #C8C7C7;
+}
+
+.price {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 2px;
+    color: #EBEBEB;
+}
+
+.text_get_250_coins_info {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: Arial;
+    font-style: oblique;
+    font-size: 22px;
+    line-height: 27px;
+    color: #F0EFEF;
+}
+

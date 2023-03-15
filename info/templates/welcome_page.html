@@ -1,0 +1,30 @@
+{% extends "base.html"%}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+    <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
+{% endblock %}
+{% block title %}КРИПТУАЛЬНО{% endblock %}
+{% block content %}
+    <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
+    <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
+    <img class="bitcoins" src="{% static 'images/bitcoins_image.png' %}">
+    <p class="intro_text">
+        Перед покупкой криптовалют проверяйте<br>
+        их актуальные курсы обмена и рыночную<br>
+        капитализацию. По кнопке ниже показана<br>
+        динамика различных криптовалют в режиме<br>
+        реального времени.
+    </p>
+    <a class="show_info_button" href="/10coins">
+        <img src="{% static 'icons/show_info_button_background.png'%}">
+        <p class="show_info_button_text">Курс крипты тут</p>
+    </a>
+    <div class="button_log_in">
+        <p class="button_log_in_text">Войти</p>
+    </div>
+    <div class="sign_in_button">
+        <p class="sign_in_button_text">Зарегистрироваться</p>
+    </div>
+{% endblock %}

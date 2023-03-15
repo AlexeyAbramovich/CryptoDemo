@@ -1,0 +1,68 @@
+.logo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 200px;
+    top: 10px;
+}
+
+.logo_text {
+    position: absolute;
+    width: 304px;
+    height: 43px;
+    left: 300px;
+    scale: 90%;
+    top: 38px;
+}
+
+.button_log_in {
+    position: absolute;
+    background-image: url("/static/icons/button_background.png");
+    height: 99px;
+    width: 175px;
+    right: 50px;
+    top: 6px;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.button_log_in:hover {
+    opacity: 1;
+}
+
+.button_log_in_text {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #EBEBEB;
+    letter-spacing: 1px;
+}
+
+.sign_in_button{
+    position: absolute;
+    background-image: url("/static/icons/sign_in_button_background.png");
+    height: 99px;
+    width: 331px;
+    right: 220px;
+    top: 6px;
+}
+
+.sign_in_button_text{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    color: #EBEBEB;
+    letter-spacing: 1px;
+}

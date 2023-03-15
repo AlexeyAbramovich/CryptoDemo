@@ -1,32 +1,14 @@
 .main_container {
-    background: linear-gradient(180deg, #323232 0%, #585757 100%);
-}
-
-.logo {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 200px;
-    top: 10px;
-}
-
-.logo_text {
-    position: absolute;
-    width: 304px;
-    height: 43px;
-    left: 300px;
-    scale: 90%;
-    top: 38px;
+    background-image: linear-gradient(to bottom, #323232, #585757);
 }
 
 .button_log_out {
     position: absolute;
     background-image: url("/static/icons/button_background.png");
-    height: 110px;
-    width: 200px;
+    height: 99px;
+    width: 175px;
     right: 50px;
     top: 6px;
-    scale: 90%;
 }
 
 .button_log_out_text {
@@ -36,7 +18,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: Arial;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     text-align: center;
     color: #EBEBEB;
@@ -156,5 +138,35 @@
     text-align: center;
     vertical-align: middle;
     line-height: 168px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 10px;
+    margin: 0px 2px;
+    border: 1px solid #3A3A3A;
+}
+
+.pagination a.active {
+    background-color: #3A3A3A;
+}
+
+.page-link {
+    color: #EBEBEB;
+    text-decoration: none;
+}
+.current-page{
+    color: #de9701;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #de9701;
 }
 

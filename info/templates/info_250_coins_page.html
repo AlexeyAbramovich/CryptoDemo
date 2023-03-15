@@ -1,16 +1,18 @@
 {% extends "base.html"%}
 {% load static %}
 {% block links %}
-    <link rel="stylesheet" href="{% static 'css/info_250_coins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/info_250_coins_page.css' %}">
+    <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
 {% endblock %}
-{% block title %}250 Coins{% endblock %}
+{% block title %}250 Криптовалют{% endblock %}
 {% block content %}
-<img class="logo" src="{% static 'icons/logo.png'%}" alt="">
-        <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
-        <div class="button_log_out">
-            <p class="button_log_out_text">Выйти</p>
-        </div>
-        <img class="table_blur" src="{% static 'icons/table_form_blur.png'%}" alt="">
+    <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
+    <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
+    <div class="button_log_out">
+        <p class="button_log_out_text">Выйти</p>
+    </div>
+    <img class="table_blur" src="{% static 'icons/table_form_blur.png'%}" alt="">
         <div class="table_form">
            <div class="table">
                 <p class="table_text">Валюта</p>
@@ -72,5 +74,22 @@
                     {% endif %}
                 </div>
             {% endfor %}
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a class="page-link" href="?page=1">&laquo;1</a>
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                    {% endif %}
+
+                    <span class="current-page">
+                        {{ page_obj.number }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }} &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
         </div>
 {% endblock %}

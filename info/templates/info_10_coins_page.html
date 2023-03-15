@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/info_10_coins_page.css' %}">
+    <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
+{% endblock %}
+{% block title %}10 Криптовалют{% endblock %}
+{% block content %}
+    <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
+    <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
+    <a class="button_log_in" href="/250coins">
+        <p class="button_log_in_text">Войти</p>
+    </a>
+    <div class="sign_in_button">
+        <p class="sign_in_button_text">Зарегистрироваться</p>
+    </div>
+    <div class="info">
+        {% for info in crypto_info%}
+            <div class="form">
+                <div class="crypto_info">
+                        <p class="coin_name">{{info.name}}</p>
+                        <p class="symbol">{{info.symbol}}</p>
+                        <img class="crypto_icon" src="{{info.image}}">
+                        <p class="price">{{info.current_price}}$</p>
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+    <p class="text_get_250_coins_info">*Для получения подробной информации о 250 криптовалютах зарегистрируйтесь на сайте</p>
+{% endblock %}
