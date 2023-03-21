@@ -9,7 +9,7 @@
 {% block content %}
     <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
     <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
-    <img class="bitcoins" src="{% static 'images/bitcoins_image.png' %}">
+    <img class="bitcoins" src="{% static 'images/bitcoins_image.png' %}" alt="">
     <p class="intro_text">
         Перед покупкой криптовалют проверяйте<br>
         их актуальные курсы обмена и рыночную<br>
@@ -17,14 +17,21 @@
         динамика различных криптовалют в режиме<br>
         реального времени.
     </p>
-    <a class="show_info_button" href="/10coins">
-        <img src="{% static 'icons/show_info_button_background.png'%}">
+    {% if user.is_authenticated %}
+    <a class="show_info_button" href="{% url 'info_250_coins'%}">
+        <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
         <p class="show_info_button_text">Курс крипты тут</p>
     </a>
-    <div class="button_log_in">
+    {% else %}
+    <a class="show_info_button" href="{% url 'info_10_coins'%}">
+        <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
+        <p class="show_info_button_text">Курс крипты тут</p>
+    </a>
+    {% endif %}
+    <a class="button_log_in" href="{% url 'login' %}">
         <p class="button_log_in_text">Войти</p>
-    </div>
-    <div class="sign_in_button">
-        <p class="sign_in_button_text">Зарегистрироваться</p>
-    </div>
+    </a>
+    <a class="sign_up_button" href="{% url 'signup' %}">
+        <p class="sign_up_button_text">Зарегистрироваться</p>
+    </a>
 {% endblock %}

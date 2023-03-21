@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from authorization.views import login_page, signup_page, logout_page
 
 urlpatterns = [
     path('', include("info.urls")),
+    # path('accounts/', include("django.contrib.auth.urls")),
+    # # path('login/', include('authorization.urls')),
+    # path('signup/', include('authorization.urls')),
+    path('signup/', signup_page, name="signup"),
+    path('login/', login_page, name="login"),
+    path('logout/', logout_page, name="logout"),
     path('admin/', admin.site.urls),
-    path('10coins/', include("info.urls")),
-    path('250coins/', include("info.urls"))
+    # path('10coins/', include("info.urls")),
+    # path('250coins/', include("info.urls"))
 ]

@@ -44,16 +44,22 @@
     letter-spacing: 1px;
 }
 
-.sign_in_button{
+.sign_up_button{
     position: absolute;
     background-image: url("/static/icons/sign_in_button_background.png");
     height: 99px;
     width: 331px;
     right: 220px;
     top: 6px;
+    opacity: 0.7;
+    transition: 0.3s;
 }
 
-.sign_in_button_text{
+.sign_up_button:hover {
+    opacity: 1;
+}
+
+.sign_up_button_text{
     position: absolute;
     margin: 0;
     top: 50%;

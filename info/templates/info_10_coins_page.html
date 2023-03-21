@@ -9,12 +9,12 @@
 {% block content %}
     <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
     <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
-    <a class="button_log_in" href="/250coins">
+    <a class="button_log_in" href="{% url 'login'%}">
         <p class="button_log_in_text">Войти</p>
     </a>
-    <div class="sign_in_button">
-        <p class="sign_in_button_text">Зарегистрироваться</p>
-    </div>
+    <a class="sign_up_button">
+        <p class="sign_up_button_text">Зарегистрироваться</p>
+    </a>
     <div class="info">
         {% for info in crypto_info%}
             <div class="form">

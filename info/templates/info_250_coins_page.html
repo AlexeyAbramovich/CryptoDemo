@@ -9,9 +9,11 @@
 {% block content %}
     <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
     <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
-    <div class="button_log_out">
-        <p class="button_log_out_text">Выйти</p>
-    </div>
+    {% if user.is_authenticated %}
+        <a class="button_log_out" href="{% url 'logout' %}">
+            <p class="button_log_out_text">Выйти</p>
+        </a>
+    {% endif %}
     <img class="table_blur" src="{% static 'icons/table_form_blur.png'%}" alt="">
         <div class="table_form">
            <div class="table">
