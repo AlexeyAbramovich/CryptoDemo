@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}10 Криптовалют{% endblock %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/info_10_coins_page.css' %}">
     <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
 {% endblock %}
-{% block title %}10 Криптовалют{% endblock %}
 {% block content %}
+    {% csrf_token %}
     <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
     <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
-    <a class="button_log_in" href="{% url 'login'%}">
-        <p class="button_log_in_text">Войти</p>
+    <a class="button_back_to_welcome_page" href="{% url 'welcome_page' %}">
+        <p class="button_text">Главная</p>
     </a>
-    <a class="sign_up_button">
-        <p class="sign_up_button_text">Зарегистрироваться</p>
+    <a class="button_log_in_out" href="{% url 'login'%}">
+        <p class="button_text">Войти</p>
+    </a>
+    <a class="sign_up_button" href="{% url 'signup'%}">
+        <p class="button_text">Зарегистрироваться</p>
     </a>
     <div class="info">
         {% for info in crypto_info%}

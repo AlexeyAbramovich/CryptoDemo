@@ -12,10 +12,15 @@ class Info10CoinsPage(ListView):
     template_name = "info_10_coins_page.html"
     context_object_name = "crypto_info"
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect(reverse('welcome_page'))
+        return super().dispatch(request, *args, **kwargs)
+
     def get_queryset(self):
         return get_crypto_data_from_coin_gecko(False)
 
-# @login_required(login_url='login')
+
 class Info250CoinsPage(ListView):
     template_name = "info_250_coins_page.html"
     context_object_name = "crypto_info"
@@ -26,7 +31,7 @@ class Info250CoinsPage(ListView):
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            return redirect(reverse('logout') + '?next=' + request.path)
+            return redirect(reverse('welcome_page'))
         return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):

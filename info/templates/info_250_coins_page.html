@@ -1,19 +1,22 @@
 {% extends "base.html"%}
 {% load static %}
+{% block title %}250 Криптовалют{% endblock %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/info_250_coins_page.css' %}">
     <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
 {% endblock %}
-{% block title %}250 Криптовалют{% endblock %}
 {% block content %}
+    {% csrf_token %}
     <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
     <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
-    {% if user.is_authenticated %}
-        <a class="button_log_out" href="{% url 'logout' %}">
-            <p class="button_log_out_text">Выйти</p>
-        </a>
-    {% endif %}
+    <p class="user_name">{{user.username}}</p>
+    <a class="button_back_to_welcome_page" href="{% url 'welcome_page' %}">
+        <p class="button_text">Главная</p>
+    </a>
+    <a class="button_log_in_out" href="{% url 'logout' %}">
+        <p class="button_text">Выйти</p>
+    </a>
     <img class="table_blur" src="{% static 'icons/table_form_blur.png'%}" alt="">
         <div class="table_form">
            <div class="table">

@@ -15,7 +15,39 @@
     top: 38px;
 }
 
-.button_log_in {
+.user_name {
+    position: absolute;
+    right: 570px;
+    top: 14px;
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: #EBEBEB;
+    overflow: hidden;
+    border-bottom: 2px solid #FFFFFF;
+    animation: blink 5s infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: #dc9200;
+        border-color: #dc9200;
+        text-shadow: 0 0 2px #dc9200;
+    }
+    50% {
+        color: #fff;
+        border-color: #fff;
+        text-shadow: none;
+    }
+    100% {
+        color: #dc9200;
+        border-color: #dc9200;
+        text-shadow: 0 0 2px #dc9200;
+    }
+}
+
+.button_log_in_out {
     position: absolute;
     background-image: url("/static/icons/button_background.png");
     height: 99px;
@@ -26,25 +58,27 @@
     transition: 0.3s;
 }
 
-.button_log_in:hover {
+.button_log_in_out:hover {
     opacity: 1;
+    transform: scale(1.1);
 }
 
-.button_log_in_text {
+.button_back_to_welcome_page {
     position: absolute;
-    margin: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: Arial;
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-    color: #EBEBEB;
-    letter-spacing: 1px;
+    background-image: url("/static/icons/button_background.png");
+    height: 99px;
+    width: 175px;
+    top: 6px;
+    opacity: 0.7;
+    transition: 0.3s;
 }
 
-.sign_up_button{
+.button_back_to_welcome_page:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.sign_up_button {
     position: absolute;
     background-image: url("/static/icons/sign_in_button_background.png");
     height: 99px;
@@ -57,9 +91,10 @@
 
 .sign_up_button:hover {
     opacity: 1;
+    transform: scale(1.1);
 }
 
-.sign_up_button_text{
+.button_text {
     position: absolute;
     margin: 0;
     top: 50%;

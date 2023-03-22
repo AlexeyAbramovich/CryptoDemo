@@ -5,6 +5,10 @@
     background-size: cover;
 }
 
+.button_back_to_welcome_page {
+    right: 550px;
+}
+
 .info {
     margin-top: 10%;
     margin-left: auto;
@@ -22,6 +26,13 @@
     width: 210px;
     height: 210px;
     margin-bottom: 40px;
+    border-radius: 22px;
+}
+
+.form:hover {
+  box-shadow: 0 0 20px #de9701;
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 .crypto_info {

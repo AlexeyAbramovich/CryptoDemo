@@ -2,27 +2,12 @@
     background-image: linear-gradient(to bottom, #323232, #585757);
 }
 
-.button_log_out {
-    position: absolute;
-    background-image: url("/static/icons/button_background.png");
-    height: 99px;
-    width: 175px;
-    right: 50px;
-    top: 6px;
+.user_name {
+    right: 380px;
 }
 
-.button_log_out_text {
-    position: absolute;
-    margin: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: Arial;
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-    color: #EBEBEB;
-    letter-spacing: 1px;
+.button_back_to_welcome_page {
+    right: 200px;
 }
 
 .table_form {
@@ -72,6 +57,11 @@
     column-count: 5;
     column-gap: 0;
     margin-bottom: 1%;
+}
+
+.form:hover{
+    transform: scale(1.04);
+    transition: 0.3s;
 }
 
 
@@ -163,10 +153,22 @@
     color: #EBEBEB;
     text-decoration: none;
 }
+
+.page-link:hover{
+    border: 1px solid #de9701;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
 .current-page{
     color: #de9701;
     display: inline-block;
     padding: 10px;
     border: 1px solid #de9701;
+    box-shadow: 0 0 4px #de9701;
+}
+.current-page:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
 }
 

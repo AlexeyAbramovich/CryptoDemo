@@ -1,12 +1,13 @@
 {% extends "base.html"%}
 {% load static %}
+{% block title %}КРИПТУАЛЬНО{% endblock %}
 {% block links %}
     <link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
     <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
 {% endblock %}
-{% block title %}КРИПТУАЛЬНО{% endblock %}
 {% block content %}
+    {% csrf_token %}
     <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
     <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
     <img class="bitcoins" src="{% static 'images/bitcoins_image.png' %}" alt="">
@@ -18,20 +19,24 @@
         реального времени.
     </p>
     {% if user.is_authenticated %}
-    <a class="show_info_button" href="{% url 'info_250_coins'%}">
-        <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
-        <p class="show_info_button_text">Курс крипты тут</p>
+        <p class="user_name">{{user.username}}</p>
+        <a class="show_info_button" href="{% url 'info_250_coins'%}">
+            <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
+            <p class="show_info_button_text">Курс крипты тут</p>
+        </a>
+        <a class="button_log_in_out" href="{% url 'logout' %}">
+        <p class="button_text">Выйти</p>
     </a>
     {% else %}
-    <a class="show_info_button" href="{% url 'info_10_coins'%}">
-        <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
-        <p class="show_info_button_text">Курс крипты тут</p>
+        <a class="show_info_button" href="{% url 'info_10_coins'%}">
+            <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
+            <p class="show_info_button_text">Курс крипты тут</p>
+        </a>
+        <a class="button_log_in_out" href="{% url 'login' %}">
+        <p class="button_text">Войти</p>
     </a>
     {% endif %}
-    <a class="button_log_in" href="{% url 'login' %}">
-        <p class="button_log_in_text">Войти</p>
-    </a>
     <a class="sign_up_button" href="{% url 'signup' %}">
-        <p class="sign_up_button_text">Зарегистрироваться</p>
+        <p class="button_text">Зарегистрироваться</p>
     </a>
 {% endblock %}
