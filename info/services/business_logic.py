@@ -40,5 +40,6 @@ def get_250_coins():
         info["changes_for_1h"] = round(changes_for_1h, 1)
         info["changes_for_24h"] = round(changes_for_24h, 1)
         info["changes_for_7d"] = round(changes_for_7d, 1)
+        info["total_volume"] = "{:,}".format(inf['total_volume'])
         info_list.append(info)
     return info_list

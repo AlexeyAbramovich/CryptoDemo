@@ -25,7 +25,6 @@ class Info250CoinsPage(ListView):
     template_name = "info_250_coins_page.html"
     context_object_name = "crypto_info"
     paginate_by = 25
-
     login_url = '/login/'
     redirect_field_name = 'redirect_to'
 

@@ -1,5 +1,5 @@
 .main_container {
-    background-image: linear-gradient(to bottom, #323232, #585757);
+    background-color: #323232;
 }
 
 .user_name {
@@ -12,26 +12,28 @@
 
 .table_form {
     background-image: url("/static/icons/table_form.png");
-    height: 124px;
-    width: 1162px;
+    height: 94px;
+    width: 1358px;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 21px;
+    box-shadow: 0 0 5px #de9701;
 }
 
 .table {
     height: 94px;
-    width: 1132px;
+    width: 1358px;
     margin-left: auto;
     margin-right: auto;
-    columns: 5;
+    columns: 6;
     column-gap: 0;
 }
 
 .table_text {
     height: 50%;
     margin: 0;
-    padding-top: 34px;
+    padding-top: 20px;
     font-family: Arial;
     font-style: normal;
     font-weight: 700;
@@ -42,7 +44,7 @@
 
 .info {
     font-family: Arial;
-    font-size: 30px;
+    font-size: 28px;
     width: fit-content;
     margin-top: 2%;
     margin-left: auto;
@@ -53,8 +55,8 @@
 .form {
     background-image: url("/static/icons/form.png");
     height: 168px;
-    width: 1132px;
-    column-count: 5;
+    width: 1358px;
+    column-count: 6;
     column-gap: 0;
     margin-bottom: 1%;
 }
@@ -103,6 +105,15 @@
     line-height: 168px;
 }
 
+.volume{
+    height: 100%;
+    border-right: 2px solid #3A3A3A;
+    color: #EBEBEB;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 168px;
+}
+
 .increase_price {
     height: 100%;
     color: #42FF00;
@@ -114,7 +125,7 @@
 
 .fall_price {
     height: 100%;
-    color: #FF2E00;
+    color: rgba(255, 46, 0, 1.0);
     border-right: 2px solid #3A3A3A;
     text-align: center;
     vertical-align: middle;

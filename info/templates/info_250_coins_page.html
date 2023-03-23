@@ -22,6 +22,7 @@
            <div class="table">
                 <p class="table_text">Валюта</p>
                 <p class="table_text">Текущая цена</p>
+                <p class="table_text">Объем торгов<br>(24 ч.)</p>
                 <p class="table_text">Изменения<br>(1 ч.)</p>
                 <p class="table_text">Изменения<br>(24 ч.)</p>
                 <p class="table_text">Изменения<br>(7 д.)</p>
@@ -37,6 +38,9 @@
                     </div>
                     <div class="price">
                         {{info.current_price}}$
+                    </div>
+                    <div class="volume">
+                        {{info.total_volume}}$
                     </div>
                     {% if info.changes_for_1h > 0 %}
                         <div class="increase_price">
