@@ -11,12 +11,10 @@ def get_10_coins():
     response = requests.get(path).json()
     data = json.dumps(response)
     data = json.loads(data)
-    info_list = []
-    for inf in data:
-        info = {"image": inf['image'], "name": inf['name'], "symbol": str(inf['symbol']).upper(),
-                "current_price": round(inf['current_price'], 9)}
-        info_list.append(info)
-    return info_list
+    for info in data:
+        info['symbol'] = info['symbol'].upper()
+        info['current_price'] = round(info['current_price'], 9)
+    return data
 
 
 def get_250_coins():
@@ -24,22 +22,17 @@ def get_250_coins():
     response = requests.get(path).json()
     data = json.dumps(response)
     data = json.loads(data)
-    info_list = []
-    for inf in data:
-        info = {}
-        changes_for_1h = inf['price_change_percentage_1h_in_currency']
-        changes_for_24h = inf['price_change_percentage_24h']
-        changes_for_7d = inf['price_change_percentage_7d_in_currency']
+    for info in data:
+        changes_for_1h = info['price_change_percentage_1h_in_currency']
+        changes_for_24h = info['price_change_percentage_24h']
+        changes_for_7d = info['price_change_percentage_7d_in_currency']
         changes_for_1h = changes_for_1h if changes_for_1h is not None else 0.0
         changes_for_24h = changes_for_24h if changes_for_24h is not None else 0.0
         changes_for_7d = changes_for_7d if changes_for_7d is not None else 0.0
-        info["image"] = inf['image']
-        info["name"] = inf['name']
-        info["symbol"] = str(inf['symbol']).upper()
-        info["current_price"] = round(inf['current_price'], 9)
-        info["changes_for_1h"] = round(changes_for_1h, 1)
-        info["changes_for_24h"] = round(changes_for_24h, 1)
-        info["changes_for_7d"] = round(changes_for_7d, 1)
-        info["total_volume"] = "{:,}".format(inf['total_volume'])
-        info_list.append(info)
-    return info_list
+        info["symbol"] = str(info['symbol']).upper()
+        info["current_price"] = round(info['current_price'], 9)
+        info["price_change_percentage_1h_in_currency"] = round(changes_for_1h, 1)
+        info["price_change_percentage_24h"] = round(changes_for_24h, 1)
+        info["price_change_percentage_7d_in_currency"] = round(changes_for_7d, 1)
+        info["total_volume"] = "{:,}".format(info['total_volume'])
+    return data

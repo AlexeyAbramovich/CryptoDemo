@@ -42,43 +42,43 @@
                     <div class="volume">
                         {{info.total_volume}}$
                     </div>
-                    {% if info.changes_for_1h > 0 %}
+                    {% if info.price_change_percentage_1h_in_currency > 0 %}
                         <div class="increase_price">
-                            {{info.changes_for_1h}}%
+                            {{info.price_change_percentage_1h_in_currency}}%
                         </div>
-                    {% elif info.changes_for_1h < 0 %}
+                    {% elif info.price_change_percentage_1h_in_currency < 0 %}
                         <div class="fall_price">
-                            {{info.changes_for_1h}}%
+                            {{info.price_change_percentage_1h_in_currency}}%
                         </div>
                     {% else %}
                         <div class="no_change_price">
-                            {{info.changes_for_1h}}%
+                            {{info.price_change_percentage_1h_in_currency}}%
                         </div>
                     {% endif %}
-                    {% if info.changes_for_24h > 0 %}
+                    {% if info.price_change_percentage_24h > 0 %}
                         <div class="increase_price">
-                            {{info.changes_for_24h}}%
+                            {{info.price_change_percentage_24h}}%
                         </div>
-                    {% elif info.changes_for_24h < 0 %}
+                    {% elif info.price_change_percentage_24h < 0 %}
                         <div class="fall_price">
-                            {{info.changes_for_24h}}%
+                            {{info.price_change_percentage_24h}}%
                         </div>
                     {% else %}
                         <div class="no_change_price">
-                            {{info.changes_for_24h}}%
+                            {{info.price_change_percentage_24h}}%
                         </div>
                     {% endif %}
-                    {% if info.changes_for_7d > 0 %}
+                    {% if info.price_change_percentage_7d_in_currency > 0 %}
                         <div class="increase_price" style="border-right: none">
-                            {{info.changes_for_7d}}%
+                            {{info.price_change_percentage_7d_in_currency}}%
                         </div>
-                    {% elif info.changes_for_7d < 0%}
+                    {% elif info.price_change_percentage_7d_in_currency < 0%}
                         <div class="fall_price" style="border-right: none">
-                            {{info.changes_for_7d}}%
+                            {{info.price_change_percentage_7d_in_currency}}%
                         </div>
                     {% else %}
                         <div class="no_change_price" style="border-right: none">
-                            {{info.changes_for_7d}}%
+                            {{info.price_change_percentage_7d_in_currency}}%
                         </div>
                     {% endif %}
                 </div>
