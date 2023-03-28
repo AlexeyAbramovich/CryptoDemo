@@ -14,8 +14,6 @@
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
     column-count: 5;
     column-gap: 60px;
     font-family: Arial;
@@ -76,6 +74,7 @@
     width: fit-content;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 16px;
     font-family: Arial;
     font-style: oblique;
     font-size: 22px;

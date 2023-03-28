@@ -25,8 +25,6 @@ class Info250CoinsPage(ListView):
     template_name = "info_250_coins_page.html"
     context_object_name = "crypto_info"
     paginate_by = 25
-    login_url = '/login/'
-    redirect_field_name = 'redirect_to'
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
@@ -34,4 +32,12 @@ class Info250CoinsPage(ListView):
         return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
+        search_query = self.request.GET.get('search_query')
+        if search_query:
+            filtered_list = list(
+                filter(lambda d: d.get('name').lower() == search_query.lower() or d.get(
+                    'symbol').lower() == search_query.lower(),
+                       get_crypto_data_from_coin_gecko(True)))
+            if filtered_list:
+                return filtered_list
         return get_crypto_data_from_coin_gecko(True)

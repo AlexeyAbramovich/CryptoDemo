@@ -10,7 +10,7 @@
     <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
 {% endblock %}
 {% block content %}
-    <form action="" method="post">
+    <form method="post">
         {% csrf_token %}
         <img class="logo" src="{% static 'icons/logo.png' %}"/>
         <label for="username">Имя пользователя</label>

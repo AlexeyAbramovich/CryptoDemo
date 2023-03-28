@@ -28,6 +28,9 @@
                 <p class="table_text">Изменения<br>(7 д.)</p>
             </div>
         </div>
+    <form method="GET" action="{% url 'info_250_coins' %}">
+        <input class="search" type="text" placeholder="&#128269;Имя/котировка" name="search_query" id="search_query">
+    </form>
         <div class="info">
             {% for info in crypto_info %}
                 <div class="form">
