@@ -35,9 +35,12 @@ class Info250CoinsPage(ListView):
         search_query = self.request.GET.get('search_query')
         if search_query:
             filtered_list = list(
-                filter(lambda d: d.get('name').lower() == search_query.lower() or d.get(
-                    'symbol').lower() == search_query.lower(),
-                       get_crypto_data_from_coin_gecko(True)))
+                filter(lambda d: d.get('name').lower() in search_query.lower() or d.get(
+                    'symbol').lower() in search_query.lower(),
+                       get_crypto_data_from_coin_gecko(True, 'market_cap')))
             if filtered_list:
                 return filtered_list
-        return get_crypto_data_from_coin_gecko(True)
+        sorting = self.request.GET.get('sorting')
+        if sorting:
+            return get_crypto_data_from_coin_gecko(True, sorting)
+        return get_crypto_data_from_coin_gecko(True, 'market_cap')

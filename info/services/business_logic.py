@@ -2,12 +2,12 @@ import requests
 import json
 
 
-def get_crypto_data_from_coin_gecko(user_is_authorized):
-    return get_250_coins() if user_is_authorized else get_10_coins()
+def get_crypto_data_from_coin_gecko(user_is_authorized, sorting):
+    return get_250_coins(sorting) if user_is_authorized else get_10_coins()
 
 
 def get_10_coins():
-    path = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false'
+    path = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&locale=en'
     response = requests.get(path).json()
     data = json.dumps(response)
     data = json.loads(data)
@@ -17,8 +17,8 @@ def get_10_coins():
     return data
 
 
-def get_250_coins():
-    path = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=1h%2C7d'
+def get_250_coins(sorting):
+    path = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=1h%2C7d&locale=en'
     response = requests.get(path).json()
     data = json.dumps(response)
     data = json.loads(data)
@@ -34,5 +34,7 @@ def get_250_coins():
         info["price_change_percentage_1h_in_currency"] = round(changes_for_1h, 1)
         info["price_change_percentage_24h"] = round(changes_for_24h, 1)
         info["price_change_percentage_7d_in_currency"] = round(changes_for_7d, 1)
+    sorted_list = sorted(data, key=lambda d: d[sorting], reverse=True)
+    for info in sorted_list:
         info["total_volume"] = "{:,}".format(info['total_volume'])
-    return data
+    return sorted_list
