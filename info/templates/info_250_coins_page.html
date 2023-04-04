@@ -1,120 +1,123 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 {% load static %}
 {% block title %}250 Криптовалют{% endblock %}
 {% block links %}
-<link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
-<link rel="stylesheet" href="{% static 'css/info_250_coins_page.css' %}">
-<link rel="icon" href="{% static 'icons/icon_logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/common_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/info_250_coins_page.css' %}">
+    <link rel="icon" href="{% static 'icons/icon_logo.png' %}">
 {% endblock %}
 {% block content %}
-{% csrf_token %}
-<img class="logo" src="{% static 'icons/logo.png'%}" alt="">
-<img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
-<p class="user_name">{{user.username}}</p>
-<a class="button_back_to_welcome_page" href="{% url 'welcome_page' %}">
-    <p class="button_text">Главная</p>
-</a>
-<a class="button_log_in_out" href="{% url 'logout' %}">
-    <p class="button_text">Выйти</p>
-</a>
-<div class="table_form">
-    <div class="table">
-        <p class="table_text">Валюта</p>
-        <p class="table_text">Текущая цена</p>
-        <p class="table_text">Объем торгов<br>(24 ч.)</p>
-        <p class="table_text">Изменения<br>(1 ч.)</p>
-        <p class="table_text">Изменения<br>(24 ч.)</p>
-        <p class="table_text">Изменения<br>(7 д.)</p>
+    {% csrf_token %}
+    <img class="logo" src="{% static 'icons/logo.png' %}" alt="">
+    <img class="logo_text" src="{% static 'icons/logo_text.png' %}" alt="">
+    <p class="user_name">{{ user.username }}</p>
+    <a class="button_back_to_welcome_page" href="{% url 'welcome_page' %}">
+        <p class="button_text">Главная</p>
+    </a>
+    <a class="button_log_in_out" href="{% url 'logout' %}">
+        <p class="button_text">Выйти</p>
+    </a>
+    <form class="search-form" method="GET" action="{% url 'info_250_coins' %}">
+        <input class="search" type="text" placeholder="&#128269;Имя/котировка" name="search_query" id="search_query">
+    </form>
+    <form class="sorting" id="sort" method="GET" action="{% url 'info_250_coins' %}">
+        <select class="dropdown" id="select" name="sorting">
+            <option class="dropdown-item" value="market_cap">Р-н капитализация</option>
+            <option class="dropdown-item" value="current_price">Цена</option>
+            <option class="dropdown-item" value="total_volume">Объём торгов</option>
+            <option class="dropdown-item" value="price_change_percentage_1h_in_currency">Изменения(1 ч.)</option>
+            <option class="dropdown-item" value="price_change_percentage_24h">Изменения(24 ч.)</option>
+            <option class="dropdown-item" value="price_change_percentage_7d_in_currency">Изменения(7 д.)</option>
+        </select>
+        <input class="sorting-button" type="submit" value="Сортировать">
+    </form>
+    <div class="table_form">
+        <div class="table">
+            <p class="table_text">Валюта</p>
+            <p class="table_text">Текущая цена</p>
+            <p class="table_text">Объем торгов<br>(24 ч.)</p>
+            <p class="table_text">Изменения<br>(1 ч.)</p>
+            <p class="table_text">Изменения<br>(24 ч.)</p>
+            <p class="table_text">Изменения<br>(7 д.)</p>
+        </div>
     </div>
-</div>
-<form class="search-form" method="GET" action="{% url 'info_250_coins' %}">
-    <input class="search" type="text" placeholder="&#128269;Имя/котировка" name="search_query" id="search_query">
-</form>
-<form class="sorting" id="sort" method="GET" action="{% url 'info_250_coins' %}">
-    <select class="dropdown" id="select" name="sorting">
-        <option class="dropdown-item" value="market_cap">Р-н капитализация</option>
-        <option class="dropdown-item" value="current_price">Цена</option>
-        <option class="dropdown-item" value="total_volume">Объём торгов</option>
-        <option class="dropdown-item" value="price_change_percentage_1h_in_currency">Изменения(1 ч.)</option>
-        <option class="dropdown-item" value="price_change_percentage_24h">Изменения(24 ч.)</option>
-        <option class="dropdown-item" value="price_change_percentage_7d_in_currency">Изменения(7 д.)</option>
-    </select>
-    <input class="sorting-button" type="submit" value="Сортировать">
-</form>
-<div class="info">
-    {% for info in crypto_info %}
-    <div class="form">
-        <div class="crypto_info">
-            <p class="coin_name">{{info.name}}</p>
-            <p class="symbol">{{info.symbol}}</p>
-            <img class="crypto_icon" src="{{info.image}}">
-        </div>
-        <div class="price">
-            {{info.current_price}}$
-        </div>
-        <div class="volume">
-            {{info.total_volume}}$
-        </div>
-        {% if info.price_change_percentage_1h_in_currency > 0 %}
-        <div class="increase_price">
-            {{info.price_change_percentage_1h_in_currency}}%
-        </div>
-        {% elif info.price_change_percentage_1h_in_currency < 0 %}
-        <div class="fall_price">
-            {{info.price_change_percentage_1h_in_currency}}%
-        </div>
-        {% else %}
-        <div class="no_change_price">
-            {{info.price_change_percentage_1h_in_currency}}%
-        </div>
-        {% endif %}
-        {% if info.price_change_percentage_24h > 0 %}
-        <div class="increase_price">
-            {{info.price_change_percentage_24h}}%
-        </div>
-        {% elif info.price_change_percentage_24h < 0 %}
-        <div class="fall_price">
-            {{info.price_change_percentage_24h}}%
-        </div>
-        {% else %}
-        <div class="no_change_price">
-            {{info.price_change_percentage_24h}}%
-        </div>
-        {% endif %}
-        {% if info.price_change_percentage_7d_in_currency > 0 %}
-        <div class="increase_price" style="border-right: none">
-            {{info.price_change_percentage_7d_in_currency}}%
-        </div>
-        {% elif info.price_change_percentage_7d_in_currency < 0%}
-        <div class="fall_price" style="border-right: none">
-            {{info.price_change_percentage_7d_in_currency}}%
-        </div>
-        {% else %}
-        <div class="no_change_price" style="border-right: none">
-            {{info.price_change_percentage_7d_in_currency}}%
-        </div>
-        {% endif %}
-    </div>
-    {% endfor %}
-    <div class="pagination">
-        <div class="step-links">
-            {% if page_obj.has_previous %}
-            <a class="page-link" href="?page=1">&laquo;1</a>
-            {% if page_obj.number != 2 %}
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number}}</a>
-            {% endif %}
-            {% endif %}
-            <div class="current-page">
-                {{ page_obj.number }}
+    <div class="info">
+        {% for info in crypto_info %}
+            <div class="form">
+                <div class="crypto_info">
+                    <p class="coin_name">{{ info.name }}</p>
+                    <p class="symbol">{{ info.symbol }}</p>
+                    <img class="crypto_icon" src="{{ info.image }}">
+                </div>
+                <div class="price">
+                    {{ info.current_price }}$
+                </div>
+                <div class="volume">
+                    {{ info.total_volume }}$
+                </div>
+                {% if info.price_change_percentage_1h_in_currency > 0 %}
+                    <div class="increase_price">
+                        {{ info.price_change_percentage_1h_in_currency }}%
+                    </div>
+                {% elif info.price_change_percentage_1h_in_currency < 0 %}
+                    <div class="fall_price">
+                        {{ info.price_change_percentage_1h_in_currency }}%
+                    </div>
+                {% else %}
+                    <div class="no_change_price">
+                        {{ info.price_change_percentage_1h_in_currency }}%
+                    </div>
+                {% endif %}
+                {% if info.price_change_percentage_24h > 0 %}
+                    <div class="increase_price">
+                        {{ info.price_change_percentage_24h }}%
+                    </div>
+                {% elif info.price_change_percentage_24h < 0 %}
+                    <div class="fall_price">
+                        {{ info.price_change_percentage_24h }}%
+                    </div>
+                {% else %}
+                    <div class="no_change_price">
+                        {{ info.price_change_percentage_24h }}%
+                    </div>
+                {% endif %}
+                {% if info.price_change_percentage_7d_in_currency > 0 %}
+                    <div class="increase_price" style="border-right: none">
+                        {{ info.price_change_percentage_7d_in_currency }}%
+                    </div>
+                {% elif info.price_change_percentage_7d_in_currency < 0 %}
+                    <div class="fall_price" style="border-right: none">
+                        {{ info.price_change_percentage_7d_in_currency }}%
+                    </div>
+                {% else %}
+                    <div class="no_change_price" style="border-right: none">
+                        {{ info.price_change_percentage_7d_in_currency }}%
+                    </div>
+                {% endif %}
             </div>
+        {% endfor %}
+        <div class="pagination">
+            <div class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class="page-link" href="?page=1">&laquo;1</a>
+                    {% if page_obj.number != 2 %}
+                        <a class="page-link"
+                           href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                    {% endif %}
+                {% endif %}
+                <div class="current-page">
+                    {{ page_obj.number }}
+                </div>
 
-            {% if page_obj.has_next %}
-            {% if page_obj.number != 9 %}
-            <a class="page-link" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
-            {% endif %}
-            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}&raquo;</a>
-            {% endif %}
+                {% if page_obj.has_next %}
+                    {% if page_obj.number != 9 %}
+                        <a class="page-link"
+                           href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                    {% endif %}
+                    <a class="page-link"
+                       href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}&raquo;</a>
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

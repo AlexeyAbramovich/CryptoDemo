@@ -1,4 +1,4 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 {% load static %}
 {% block title %}КРИПТУАЛЬНО{% endblock %}
 {% block links %}
@@ -8,8 +8,8 @@
 {% endblock %}
 {% block content %}
     {% csrf_token %}
-    <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
-    <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
+    <img class="logo" src="{% static 'icons/logo.png' %}" alt="">
+    <img class="logo_text" src="{% static 'icons/logo_text.png' %}" alt="">
     <img class="bitcoins" src="{% static 'images/bitcoins_image.png' %}" alt="">
     <p class="intro_text">
         Перед покупкой криптовалют проверяйте<br>
@@ -19,22 +19,22 @@
         реального времени.
     </p>
     {% if user.is_authenticated %}
-        <p class="user_name">{{user.username}}</p>
-        <a class="show_info_button" href="{% url 'info_250_coins'%}">
-            <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
+        <p class="user_name">{{ user.username }}</p>
+        <a class="show_info_button" href="{% url 'info_250_coins' %}">
+            <img src="{% static 'icons/show_info_button_background.png' %}" alt="">
             <p class="show_info_button_text">Курс крипты тут</p>
         </a>
         <a class="button_log_in_out" href="{% url 'logout' %}">
-        <p class="button_text">Выйти</p>
-    </a>
+            <p class="button_text">Выйти</p>
+        </a>
     {% else %}
-        <a class="show_info_button" href="{% url 'info_10_coins'%}">
-            <img src="{% static 'icons/show_info_button_background.png'%}" alt="">
+        <a class="show_info_button" href="{% url 'info_10_coins' %}">
+            <img src="{% static 'icons/show_info_button_background.png' %}" alt="">
             <p class="show_info_button_text">Курс крипты тут</p>
         </a>
         <a class="button_log_in_out" href="{% url 'login' %}">
-        <p class="button_text">Войти</p>
-    </a>
+            <p class="button_text">Войти</p>
+        </a>
     {% endif %}
     <a class="sign_up_button" href="{% url 'signup' %}">
         <p class="button_text">Зарегистрироваться</p>

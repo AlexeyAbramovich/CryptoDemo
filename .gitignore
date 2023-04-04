@@ -1,3 +1,9 @@
 .idea
 .DS_Store
 db.sqlite3
+authorization/__pycache__/
+authorization/migrations/__pycache__/
+crypto_demo/__pycache__/
+info/__pycache__/
+info/migrations/__pycache__/
+info/services/__pycache__/

@@ -13,13 +13,13 @@
     <form method="post">
         {% csrf_token %}
         <img class="logo" src="{% static 'icons/logo.png' %}"/>
-        <label for="username">Имя пользователя</label>
+        <label for="username">Имя пользователя*</label>
         <input type="text" placeholder="Имя пользователя" name="username" id="username" maxlength="20">
 
         <label for="email">Почта</label>
         <input type="email" placeholder="Почта или телефон" name="email" id="email">
 
-        <label for="password1">Пароль</label>
+        <label for="password1">Пароль*</label>
         <input type="password" placeholder="Пароль" id="password1" name="password1">
 
         <button type="submit">Зарегистрироваться</button>

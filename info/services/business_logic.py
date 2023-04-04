@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def get_crypto_data_from_coin_gecko(user_is_authorized, sorting):
+def get_crypto_data_from_coin_gecko(user_is_authorized, sorting=None):
     return get_250_coins(sorting) if user_is_authorized else get_10_coins()
 
 

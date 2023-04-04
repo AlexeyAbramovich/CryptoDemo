@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Title{% endblock %}</title>
-        {% block links %}{% endblock %}
-    </head>
-    <body class="main_container">
-        {% csrf_token %}
-        {% block content %}{% endblock%}
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    {% block links %}{% endblock %}
+</head>
+<body class="main_container">
+{% csrf_token %}
+{% block content %}{% endblock %}
+</body>
 </html>

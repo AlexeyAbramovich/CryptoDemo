@@ -8,28 +8,29 @@
 {% endblock %}
 {% block content %}
     {% csrf_token %}
-    <img class="logo" src="{% static 'icons/logo.png'%}" alt="">
-    <img class="logo_text" src="{% static 'icons/logo_text.png'%}" alt="">
+    <img class="logo" src="{% static 'icons/logo.png' %}" alt="">
+    <img class="logo_text" src="{% static 'icons/logo_text.png' %}" alt="">
     <a class="button_back_to_welcome_page" href="{% url 'welcome_page' %}">
         <p class="button_text">Главная</p>
     </a>
-    <a class="button_log_in_out" href="{% url 'login'%}">
+    <a class="button_log_in_out" href="{% url 'login' %}">
         <p class="button_text">Войти</p>
     </a>
-    <a class="sign_up_button" href="{% url 'signup'%}">
+    <a class="sign_up_button" href="{% url 'signup' %}">
         <p class="button_text">Зарегистрироваться</p>
     </a>
     <div class="info">
         {% for info in crypto_info %}
             <div class="form">
                 <div class="crypto_info">
-                        <p class="coin_name">{{info.name}}</p>
-                        <p class="symbol">{{info.symbol}}</p>
-                        <img class="crypto_icon" src="{{info.image}}">
-                        <p class="price">{{info.current_price}}$</p>
-                    </div>
+                    <p class="coin_name">{{ info.name }}</p>
+                    <p class="symbol">{{ info.symbol }}</p>
+                    <img class="crypto_icon" src="{{ info.image }}">
+                    <p class="price">{{ info.current_price }}$</p>
+                </div>
             </div>
         {% endfor %}
     </div>
-    <p class="text_get_250_coins_info">*Для получения подробной информации о 250 криптовалютах зарегистрируйтесь на сайте</p>
+    <p class="text_get_250_coins_info">*Для получения подробной информации о 250 криптовалютах зарегистрируйтесь на
+        сайте</p>
 {% endblock %}
